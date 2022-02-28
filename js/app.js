@@ -32,8 +32,7 @@ const displaySearchResult = data => {
              </div>
              <button type="button" class="btn btn-primary w-40 mx-auto" style="border-radius: 1rem; background-color: rgb(56, 162, 247); padding: 6px 20px; border:none;">View Details</button>
 
-        </div>
-        `;
+        </div>`;
         searchResult.appendChild(div);
 
     });
