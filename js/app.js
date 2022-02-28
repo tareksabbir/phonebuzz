@@ -1,3 +1,4 @@
+// searching phones or others
 const searchPhone = async () => {
     const searchFieldInput = document.getElementById('srearch-field');
     const searchField = searchFieldInput.value;
@@ -16,6 +17,7 @@ const searchPhone = async () => {
     }
 }
 
+//display data from api
 const displaySearchResult = data => {
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
@@ -34,11 +36,8 @@ const displaySearchResult = data => {
 
         </div>`;
         searchResult.appendChild(div);
-
     });
-
 }
-
 
 
 
