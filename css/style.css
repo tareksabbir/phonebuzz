@@ -1,0 +1,13 @@
+.navbar-style{
+    background-color: rgb(23, 31, 54);
+}
+.link-color{
+    color: aliceblue;
+}
+
+.logo{
+    height: 40px;
+    width: 40px;
+    margin-right: .3rem;
+    
+}
