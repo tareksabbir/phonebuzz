@@ -27,8 +27,6 @@ const displaySearchResult = data => {
         searchResult.textContent = '';
 
         for (const phone of data.slice(0, 20)) {
-            //console.log(phone);
-            //stringify = JSON.stringify(phone.slug);
             const div = document.createElement('div');
             div.classList.add('col');
             div.innerHTML = `
@@ -46,7 +44,6 @@ const displaySearchResult = data => {
         }
     }
 }
-
 
 // singel phone details
 
