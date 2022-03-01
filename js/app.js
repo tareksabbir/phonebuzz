@@ -26,7 +26,7 @@ const displaySearchResult = data => {
         const searchResult = document.getElementById('search-result');
         searchResult.textContent = '';
 
-        data.forEach(phone => {
+        for (const phone of data.slice(0, 20)) {
             //console.log(phone);
             //stringify = JSON.stringify(phone.slug);
             const div = document.createElement('div');
@@ -43,7 +43,7 @@ const displaySearchResult = data => {
                     </div>`;
             searchResult.appendChild(div);
 
-        });
+        }
     }
 }
 
@@ -86,9 +86,9 @@ const displayPhoneDetails = data => {
                         <p class="card-text"><b>Memory:</b> <span>${data.mainFeatures.memory}</span></p>
                         <p class="card-text"><b>Storage:</b> <span>${data.mainFeatures.storage}</span></p>
                         <p class="card-text"><b>Sensors:</b><span>${data.mainFeatures.sensors}</span></p>
-                        <p class="card-text"><b>Wlan:</b> <span>${data?.others?.WLAN}</span></p>
-                        <p class="card-text"><b>Bluetooth:</b> <span>${data?.others?.Bluetooth}</span></p>
-                        <p class="card-text"><b>NFC:</b> <span>${data?.others?.NFC}</span> <span><b>Radio:</b> <span>${data?.others?.Radio}</span></span> <span><b>Radio:</b> <span>${data?.others?.Radio}</span></span> <span><b>USB:</b> <span>${data?.others?.USB}</span></span></p>                 
+                        <p class="card-text"><b>Wlan:</b> <span>${data?.others?.WLAN ? data.others.WLAN : 'no'}</span></p>
+                        <p class="card-text"><b>Bluetooth:</b> <span>${data?.others?.Bluetooth ? data.others.Bluetooth : 'no'}</span></p>
+                        <p class="card-text"><b>NFC:</b> <span>${data?.others?.NFC ? data.others.NFC : 'no'}</span> <span><b>Radio:</b> <span>${data?.others?.Radio ? data.others.Radio : 'no'}</span></span> <span><b>Radio:</b> <span>${data?.others?.Radio ? data.others.Radio : 'no'}</span></span> <span><b>USB:</b> <span>${data?.others?.USB ? data.others.USB : 'no'}</span></span></p>                 
                     </div>
                 </div>
             </div>
