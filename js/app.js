@@ -41,6 +41,9 @@ const displaySearchResult = data => {
     });
 }
 
+
+// singel phone details
+
 const loadPhoneDetails = async id => {
     //console.log(id);
     const url = `https://openapi.programming-hero.com/api/phone/${id}`
@@ -48,6 +51,8 @@ const loadPhoneDetails = async id => {
     const data = await res.json();
     displayPhoneDetails(data.data);
 }
+
+// display singel phone details
 
 const displayPhoneDetails = data => {
     console.log(data);
@@ -58,20 +63,25 @@ const displayPhoneDetails = data => {
     <div class="card mb-3 mt-5 mx-auto" style="max-width:75%;">
             <div class="row g-0">
                 <div class="col-md-5 p-5">
-                <img src="${data.image}" class="card-img w-75" style="align-items: center;" alt="">
+                <img src="${data.image}" class="card-img w-100" style="align-items: center;" alt="">
                 </div>
                 <div class="col-md-7">
-                    <div class="card-body p-5">
-                        <h5 class="card-title">${data.name}</h5>
+                    <div class="card-body p-4">
+                        <h4 class="card-title">${data.name}</h4>
                         <h6 class="card-text">${data.brand}</h6>
+                        <small>${data.releaseDate}</small>
                         <hr>
                         <h5 class="card-title">Specifications</h5>
-                        
-                        <p class="card-text">Storage: <span>${data.mainFeatures.storage}</p></span>
-                        <p class="card-text">DisplaySize: <span>${data.mainFeatures.displaySize}</span></p>
-                        <p class="card-text">ChipSet <span>${data.mainFeatures.chipSet}</span></p>
-                        <p class="card-text">Memory: <span>${data.mainFeatures.memory}</span></p>
-                        <p class="card-text">Storage: <span>${data.mainFeatures.storage}</span></p>
+                    
+                        <p class="card-text"><b>Storage:</b> <span>${data.mainFeatures.storage}</p></span>
+                        <p class="card-text"><b>DisplaySize:</b><span>${data.mainFeatures.displaySize}</span></p>
+                        <p class="card-text"><b>ChipSet</b> <span>${data.mainFeatures.chipSet}</span></p>
+                        <p class="card-text"><b>Memory:</b> <span>${data.mainFeatures.memory}</span></p>
+                        <p class="card-text"><b>Storage:</b> <span>${data.mainFeatures.storage}</span></p>
+                        <p class="card-text"><b>Sensors:</b><span>${data.mainFeatures.sensors}</span></p>
+                        <p class="card-text"><b>Wlan:</b> <span>${data.others.WLAN}</span></p>
+                        <p class="card-text"><b>Bluetooth:</b> <span>${data.others.Bluetooth}</span></p>
+                        <p class="card-text"><b>NFC:</b> <span>${data.others.NFC}</span> <span><b>Radio:</b> <span>${data.others.Radio}</span></span> <span><b>Radio:</b> <span>${data.others.Radio}</span></span> <span><b>USB:</b> <span>${data.others.USB}</span></span></p>                 
                     </div>
                 </div>
             </div>
