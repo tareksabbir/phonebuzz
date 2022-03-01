@@ -5,7 +5,7 @@ const searchPhone = async () => {
     //console.log(searchField);
     searchFieldInput.value = '';
     if (searchField == '') {
-        // error sms
+        alert('** Product Not FounD please Enter a product name **')
 
     } else {
         // load data 
@@ -19,26 +19,32 @@ const searchPhone = async () => {
 
 //display data from api
 const displaySearchResult = data => {
-    const searchResult = document.getElementById('search-result');
-    searchResult.textContent = '';
+    if (data == '') {
+        alert('Sorry we dont have that product!')
+    }
+    else {
+        const searchResult = document.getElementById('search-result');
+        searchResult.textContent = '';
 
-    data.forEach(phone => {
-        //console.log(phone);
-        //stringify = JSON.stringify(phone.slug);
-        const div = document.createElement('div');
-        div.classList.add('col');
-        div.innerHTML = `
-        <div class="card  h-100 p-5">
-              <img src="${phone.image}" class="card-img-top w-50 mx-auto" alt="">
-              <div class="card-body text-center">
-                   <h5 class="card-title">${phone.phone_name}</h5>
-                   <p class="card-text">${phone.brand}</p>
-             </div>
-             <button onclick ="loadPhoneDetails('${phone.slug}')" type="button" class="btn btn-primary w-40 mx-auto" style="border-radius: 1rem; background-color: rgb(56, 162, 247); padding: 6px 20px; border:none;">View Details</button>
+        data.forEach(phone => {
+            //console.log(phone);
+            //stringify = JSON.stringify(phone.slug);
+            const div = document.createElement('div');
+            div.classList.add('col');
+            div.innerHTML = `
+                   <div class="card  h-100 p-5">
+                          <img src="${phone.image}" class="card-img-top w-50 mx-auto" alt="">
+                            <div class="card-body text-center">
+                                 <h5 class="card-title">${phone.phone_name}</h5>
+                                 <p class="card-text">${phone.brand}</p>
+                            </div>
+                            <button onclick ="loadPhoneDetails('${phone.slug}')" type="button" class="btn btn-primary w-40 mx-auto" style="border-radius: 1rem; background-color: rgb(56, 162, 247); padding: 6px 20px; border:none;">View Details</button>
 
-        </div>`;
-        searchResult.appendChild(div);
-    });
+                    </div>`;
+            searchResult.appendChild(div);
+
+        });
+    }
 }
 
 
@@ -56,6 +62,7 @@ const loadPhoneDetails = async id => {
 
 const displayPhoneDetails = data => {
     console.log(data);
+
     const phoneDetails = document.getElementById('phone-details');
     phoneDetails.textContent = '';
     const div = document.createElement('div');
@@ -69,7 +76,7 @@ const displayPhoneDetails = data => {
                     <div class="card-body p-4">
                         <h4 class="card-title">${data.name}</h4>
                         <h6 class="card-text">${data.brand}</h6>
-                        <small>${data.releaseDate}</small>
+                        <small>${data.releaseDate ? data.releaseDate : 'Unknown Release Date'}</small>
                         <hr>
                         <h5 class="card-title">Specifications</h5>
                     
@@ -79,9 +86,9 @@ const displayPhoneDetails = data => {
                         <p class="card-text"><b>Memory:</b> <span>${data.mainFeatures.memory}</span></p>
                         <p class="card-text"><b>Storage:</b> <span>${data.mainFeatures.storage}</span></p>
                         <p class="card-text"><b>Sensors:</b><span>${data.mainFeatures.sensors}</span></p>
-                        <p class="card-text"><b>Wlan:</b> <span>${data.others.WLAN}</span></p>
-                        <p class="card-text"><b>Bluetooth:</b> <span>${data.others.Bluetooth}</span></p>
-                        <p class="card-text"><b>NFC:</b> <span>${data.others.NFC}</span> <span><b>Radio:</b> <span>${data.others.Radio}</span></span> <span><b>Radio:</b> <span>${data.others.Radio}</span></span> <span><b>USB:</b> <span>${data.others.USB}</span></span></p>                 
+                        <p class="card-text"><b>Wlan:</b> <span>${data?.others?.WLAN}</span></p>
+                        <p class="card-text"><b>Bluetooth:</b> <span>${data?.others?.Bluetooth}</span></p>
+                        <p class="card-text"><b>NFC:</b> <span>${data?.others?.NFC}</span> <span><b>Radio:</b> <span>${data?.others?.Radio}</span></span> <span><b>Radio:</b> <span>${data?.others?.Radio}</span></span> <span><b>USB:</b> <span>${data?.others?.USB}</span></span></p>                 
                     </div>
                 </div>
             </div>
