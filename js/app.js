@@ -3,7 +3,7 @@ const searchPhone = async () => {
     const searchFieldInput = (document.getElementById('srearch-field')).value;
     const searchField = searchFieldInput.toLowerCase();
     //console.log(searchField);
-    searchFieldInput.value = '';
+    (document.getElementById('srearch-field')).value = '';
     if (searchField == '') {
         alert('** Product Not FounD please Enter a product name **')
 
@@ -13,7 +13,6 @@ const searchPhone = async () => {
         const res = await fetch(url);
         const data = await res.json();
         displaySearchResult(data.data);
-
     }
 }
 //display data from api
@@ -83,7 +82,7 @@ const displayPhoneDetails = data => {
                         <p class="card-text"><b>Sensors:</b><span>${data.mainFeatures.sensors}</span></p>
                         <p class="card-text"><b>Wlan:</b> <span>${data?.others?.WLAN ? data.others.WLAN : 'no'}</span></p>
                         <p class="card-text"><b>Bluetooth:</b> <span>${data?.others?.Bluetooth ? data.others.Bluetooth : 'no'}</span></p>
-                        <p class="card-text"><b>NFC:</b> <span>${data?.others?.NFC ? data.others.NFC : 'no'}</span> <span><b>Radio:</b> <span>${data?.others?.Radio ? data.others.Radio : 'no'}</span></span> <span><b>Radio:</b> <span>${data?.others?.Radio ? data.others.Radio : 'no'}</span></span> <span><b>USB:</b> <span>${data?.others?.USB ? data.others.USB : 'no'}</span></span></p>                 
+                        <p class="card-text"><b> NFC: </b> <span> ${data?.others?.NFC ? data.others.NFC : 'no'} </span> <span><b> Radio: </b> <span> ${data?.others?.Radio ? data.others.Radio : 'no'} </span></span><span><b> USB: </b> <span> ${data?.others?.USB ? data.others.USB : 'no'} </span></span></p>                 
                     </div>
                 </div>
             </div>
