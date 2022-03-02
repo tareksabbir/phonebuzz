@@ -16,7 +16,6 @@ const searchPhone = async () => {
 
     }
 }
-
 //display data from api
 const displaySearchResult = data => {
     if (data == '') {
@@ -25,7 +24,6 @@ const displaySearchResult = data => {
     else {
         const searchResult = document.getElementById('search-result');
         searchResult.textContent = '';
-
         for (const phone of data.slice(0, 20)) {
             const div = document.createElement('div');
             div.classList.add('col');
@@ -46,6 +44,8 @@ const displaySearchResult = data => {
     }
 }
 
+
+
 // singel phone details
 
 const loadPhoneDetails = async id => {
@@ -55,12 +55,9 @@ const loadPhoneDetails = async id => {
     const data = await res.json();
     displayPhoneDetails(data.data);
 }
-
 // display singel phone details
-
 const displayPhoneDetails = data => {
     //console.log(data);
-
     const phoneDetails = document.getElementById('phone-details');
     phoneDetails.textContent = '';
     const div = document.createElement('div');
