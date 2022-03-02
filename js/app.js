@@ -92,6 +92,7 @@ const displayPhoneDetails = data => {
             </div>
         </div>`;
     phoneDetails.appendChild(div);
+    window.scrollTo(0, 1130);
 
 
 }
