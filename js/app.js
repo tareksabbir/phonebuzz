@@ -1,7 +1,7 @@
 // searching phones or others
 const searchPhone = async () => {
-    const searchFieldInput = document.getElementById('srearch-field');
-    const searchField = searchFieldInput.value;
+    const searchFieldInput = (document.getElementById('srearch-field')).value;
+    const searchField = searchFieldInput.toLowerCase();
     //console.log(searchField);
     searchFieldInput.value = '';
     if (searchField == '') {
