@@ -40,6 +40,7 @@ const displaySearchResult = data => {
 
                     </div>`;
             searchResult.appendChild(div);
+            window.scrollTo(0, 1110);
 
         }
     }
@@ -58,7 +59,7 @@ const loadPhoneDetails = async id => {
 // display singel phone details
 
 const displayPhoneDetails = data => {
-    console.log(data);
+    //console.log(data);
 
     const phoneDetails = document.getElementById('phone-details');
     phoneDetails.textContent = '';
